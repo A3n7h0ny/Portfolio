@@ -733,26 +733,35 @@ initCarousel('carouselTrack2', 'arrowLeft2', 'arrowRight2', 'indicatorDots2');
 
   } // end story guard
   
-  const cursorDot = document.querySelector(".cursor-dot");
+const cursorDot = document.querySelector(".cursor-dot");
 const cursorOutline = document.querySelector(".cursor-outline");
 
+let mouseX = 0, mouseY = 0;
+let outlineX = 0, outlineY = 0;
+
 window.addEventListener("mousemove", (e) => {
-  const posX = e.clientX;
-  const posY = e.clientY;
-
-  cursorDot.style.left = `${posX}px`;
-  cursorDot.style.top = `${posY}px`;
-
-  cursorOutline.animate(
-    { left: `${posX}px`, top: `${posY}px` },
-    { duration: 500, fill: "forwards" }
-  );
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  
+  // DOT moves INSTANTLY (same as default cursor)
+  cursorDot.style.left = `${mouseX}px`;
+  cursorDot.style.top = `${mouseY}px`;
 });
+
+// Outline follows with SMOOTH delay (premium feel)
+function smoothFollow() {
+  outlineX += (mouseX - outlineX) * 0.15;
+  outlineY += (mouseY - outlineY) * 0.15;
+  cursorOutline.style.left = `${outlineX}px`;
+  cursorOutline.style.top = `${outlineY}px`;
+  requestAnimationFrame(smoothFollow);
+}
+smoothFollow();
 
 // Add hover effects for buttons/links
 const hoverElements = document.querySelectorAll("a, button, .project-card");
 hoverElements.forEach((el) => {
-  el.addEventListener("mouseover", () => cursorOutline.classList.add("cursor-hover"));
-  el.addEventListener("mouseout", () => cursorOutline.classList.remove("cursor-hover"));
+  el.addEventListener("mouseenter", () => cursorOutline.classList.add("cursor-hover"));
+  el.addEventListener("mouseleave", () => cursorOutline.classList.remove("cursor-hover"));
 });
 }); // end DOMContentLoaded
