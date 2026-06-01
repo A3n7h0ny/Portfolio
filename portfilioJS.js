@@ -764,4 +764,71 @@ hoverElements.forEach((el) => {
   el.addEventListener("mouseenter", () => cursorOutline.classList.add("cursor-hover"));
   el.addEventListener("mouseleave", () => cursorOutline.classList.remove("cursor-hover"));
 });
+
+
+// Mini code ticker - cycles through messages
+const tickerMessages = [
+  "1567  .always-learning {}",
+  "42 .problems-solved {}",
+  "∞ .curiosity {color:}",
+  "3am .debugging {}",
+  "// coffee.required(true)",
+  "git commit -m 'progress'",
+  "while(alive) { learn(); }",
+  "300 .coffee-cups {}",
+  "while(awake) { code(); }",
+  "return 'success';",
+  "npm install knowledge",
+  "git push --force dreams",
+  "Hello World!",
+  "<h6>C++</h6>"
+];
+
+let messageIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let tickerElement = document.getElementById('tickerText');
+
+function typeEffect() {
+  if (!tickerElement) return;
+  
+  const currentMessage = tickerMessages[messageIndex];
+  
+  if (isDeleting) {
+    // Deleting characters
+    tickerElement.textContent = currentMessage.substring(0, charIndex - 1);
+    charIndex--;
+    
+    if (charIndex === 0) {
+      isDeleting = false;
+      messageIndex = (messageIndex + 1) % tickerMessages.length;
+      setTimeout(typeEffect, 300);
+    } else {
+      setTimeout(typeEffect, 30);
+    }
+  } else {
+    // Typing characters
+    tickerElement.textContent = currentMessage.substring(0, charIndex + 1);
+    charIndex++;
+    
+    if (charIndex === currentMessage.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 2000); // Pause at end
+    } else {
+      setTimeout(typeEffect, 60);
+    }
+  }
+}
+
+// Start the ticker when the stats section is visible
+const statsSectionForTicker = document.querySelector('.stats-section');
+if (statsSectionForTicker && tickerElement) {
+  const tickerObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      setTimeout(typeEffect, 500);
+      tickerObserver.disconnect(); // Only start once
+    }
+  }, { threshold: 0.3 });
+  tickerObserver.observe(statsSectionForTicker);
+}
 }); // end DOMContentLoaded

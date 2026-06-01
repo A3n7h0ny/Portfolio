@@ -357,7 +357,7 @@ body.no-scroll, body.menu-open { overflow: hidden; }
 }
 
 .animation-3 { 
-  background: linear-gradient(45deg,#e52e71,#ff8a00);
+  background: linear-gradient(45deg,#f4208f,#e52e71,#ff8a00);
   background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -366,7 +366,7 @@ body.no-scroll, body.menu-open { overflow: hidden; }
  }
 
 .animation-2 {
-  background: linear-gradient(90deg,  #ff8a00, #e52e71,#ff8a00);
+  background: linear-gradient(90deg,  #ff8a00, #e52e71,#f4208f,#ff8a00);
   background-size: 400% 400%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -557,7 +557,6 @@ body.light-mode .header-content p {
 body.light-mode .Vertical-line { 
   border-left: 3px solid #1a1a1a; 
 }
-
 body.light-mode .animation {
   background: linear-gradient(45deg,#4a4a6a, #8a42fd,   #00a5b5, #7b00ff);
   background-size: 300% 300%;
@@ -1611,6 +1610,59 @@ body.light-mode .image-blur {
 /* ============================================================
    STATS — unchanged
    ============================================================ */
+
+  /* Mini Code Ticker */
+.mini-code-ticker {
+  margin-top: 2rem;
+  padding: 0.75rem 1rem;
+  background: #0000005b;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Courier New', 'Fira Code', monospace;
+
+}
+
+.ticker-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.ticker-prompt {
+  color: #2cceff;
+  font-weight: bold;
+}
+
+.ticker-text {
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+}
+
+.ticker-cursor {
+  color: #2cceff;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Light mode */
+body.light-mode .mini-code-ticker {
+  background: rgb(255, 255, 255);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .ticker-text {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+body.light-mode .ticker-prompt {
+  color: #0d9488;
+}
+ 
 .stats-section { display:flex; justify-content:center; gap:.2rem; margin-top:1vh; flex-wrap:wrap; }
 .stat { padding:.2rem; border-radius:15px; text-align:center; width:6rem; }
 
@@ -1627,9 +1679,9 @@ body.light-mode .image-blur {
 
 .fa-code {
   font-size:7rem; padding:10px;
-  background:linear-gradient(90deg,#8a42fd,#2cceff,#922dff); background-size:200% auto;
+  background:linear-gradient(90deg,#8a42fd,#2cceff,#922dff,#e52e71); background-size:200% auto;
   background-clip:text; color:transparent;
-  animation:pulse 2s ease infinite, gradientMove 3s linear infinite;
+  animation:pulse 2s ease infinite, gradientMove 8s linear infinite;
   display:flex; justify-content:center; align-items:center; width:100%;
 }
 
