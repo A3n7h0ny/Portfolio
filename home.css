@@ -542,7 +542,16 @@ body.light-mode .pulsse {
   
   background:  linear-gradient(45deg,    #7b00ff, #00a5b5);
 }
-
+body.light-mode .hero-overlay-text,
+body.light-mode .Skills-section::before,
+body.light-mode .project-section::before,
+body.light-mode .journey-section::before,
+body.light-mode .contact-section::before {
+  background: linear-gradient(135deg, rgba(0,0,0,0.02), rgba(0,0,0,0.05));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
 /* Header Content */
 body.light-mode .header-content h1,
 body.light-mode .header-content h2,
@@ -933,6 +942,18 @@ nav ul li a::after {
   max-width:100%; margin-top:2.3rem; margin-bottom:2rem;
   font-family: 'Oxanium', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto ,sans-serif; line-height:1.5; font-weight:300;
 }
+.hero-overlay-text{
+  position:absolute;
+  right:-20px;bottom:0px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(80px,12vw,160px);
+  font-weight:900;font-style:italic;
+  color:rgba(255, 255, 255, 0.02);
+  line-height:1;
+  white-space:nowrap;
+  letter-spacing:-4px;
+  user-select:none;
+}
 
 .name-animation {
   
@@ -1079,7 +1100,6 @@ button:active { border-color:rgb(255,255,255); }
   font-weight:700; color:#fff; margin-top:6rem;
   padding: 7px 15px;
   background: rgba(117, 47, 247, 0.199);
-  
   border-radius: 0 50px 50px  50px ;
   display: inline-block;
   margin-bottom: 2rem;
@@ -1135,7 +1155,7 @@ button:active { border-color:rgb(255,255,255); }
   padding: 6px 14px 6px 16px;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  white-space: nowrap;
+  white-space: nowrap; 
   z-index: 30;
   pointer-events: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -1711,9 +1731,23 @@ body.light-mode .ticker-prompt {
 /* ============================================================
    SKILLS
    ============================================================ */
-.Skills-section { padding-bottom:100px; isolation: isolate;}
-
-
+.Skills-section { padding-bottom:100px; isolation: isolate; position: relative;}
+.Skills-section::before{
+  content:'TECH STACK';
+  position:absolute;right:-10px;top:-10px;
+  font-family:'Playfair Display',serif;
+  font-weight:900;font-style:italic;
+  color:rgba(255,255,255,0.02);
+  line-height:1;pointer-events:none;
+  font-size: clamp(80px, 15vw, 180px);  /* Scales down on mobile */
+}
+@media (max-width: 768px) {
+  .Skills-section::before {
+    font-size: 70px;
+    right: 0;
+    top: 0%;
+  }
+}
 .div4 h2 {
    text-align:center; font-size:15px; font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto ,sans-serif;
   font-weight:700; color:#fff; margin-top:7rem;
@@ -1722,6 +1756,7 @@ body.light-mode .ticker-prompt {
     border-radius: 0 50px 50px  50px  ;
      display: inline-block;
        margin-bottom: 2rem;
+       z-index: 3;
 }
 
 .skill-svg {
@@ -1774,7 +1809,108 @@ progress::-webkit-progress-bar   { background:rgba(255,255,255,0.1); border-radi
 progress::-webkit-progress-value { background:linear-gradient(90deg,#922dff,#f8f7aa); border-radius:10px; transition:width 1.5s ease-in-out; }
 progress::-moz-progress-bar      { background:linear-gradient(90deg,#922dff,#f8f7aa); border-radius:10px; }
 
+/* ============================================================
+   CURRENTLY LEARNING - TAG STYLE (No Progress Bars)
+   ============================================================ */
+.currently-learning {
+  margin: 3rem auto 2rem;
+  max-width: 850px;
+  text-align: center;
+}
 
+.learning-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+  font-family: 'Oxanium', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.learning-header i {
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, #922dff, #2cceff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.learning-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.learning-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 60px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.learning-tag:hover {
+  background: rgba(146, 45, 255, 0.15);
+  border-color: rgba(146, 45, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.learning-tag i {
+  font-size: 1rem;
+}
+
+/* Icon colors (subtle, not overpowering) */
+.learning-tag i.fa-react { color: #61dafb; }
+.learning-tag i.fa-leaf { color: #6db33f; }
+.learning-tag i.fa-wordpress { color: #21759b; }
+.learning-tag i.fa-python { color: #3776ab; }
+
+/* Light mode */
+body.light-mode .learning-header {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+body.light-mode .learning-tag {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+body.light-mode .learning-tag:hover {
+  background: rgba(146, 45, 255, 0.1);
+  border-color: rgba(146, 45, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .currently-learning {
+    margin: 2rem 1rem;
+  }
+  
+  .learning-tag {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+  }
+  
+  .learning-tag i {
+    font-size: 0.85rem;
+  }
+}
 
 .availability { 
   margin: 50px auto 15px; 
@@ -1808,11 +1944,8 @@ progress::-moz-progress-bar      { background:linear-gradient(90deg,#922dff,#f8f
             background: #ffffff00;       /* warm neutral backdrop */
             padding: 1.2rem 0;
             overflow: hidden;
-           
             width: 80%;
             margin: 0 auto;
-           
-          
         }
         .tech-category {
       text-align: center;
@@ -1954,7 +2087,32 @@ progress::-moz-progress-bar      { background:linear-gradient(90deg,#922dff,#f8f
    PROJECTS CAROUSEL
    ============================================================ */
 
+.project-section {
+  position: relative;
+  overflow: hidden;
+}
 
+.project-section::before {
+  content: '04';
+  position: absolute;
+  left: -20px;
+  top: 5%;
+  transform: translateY(-50%);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(120px, 15vw, 200px);
+  color: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+  z-index: -1;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .project-section::before {
+    left: -30px;
+    top: 7%;
+  }
+}
    .project-label h2 { 
    text-align:center; font-size:15px; font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto ,sans-serif;
   font-weight:700; color:#fff; margin-top:5rem;
@@ -2198,7 +2356,30 @@ progress::-moz-progress-bar      { background:linear-gradient(90deg,#922dff,#f8f
 .section-title { margin-bottom:65px; 
 text-align: center;
 }
-
+.journey-section {
+  position: relative;
+  overflow: hidden;
+}
+.journey-section::before {
+  content: '05';
+  position: absolute;
+  left: -30px;
+  bottom: -30px;
+  font-family: 'Playfair Display', serif;
+  font-size: 180px;
+  font-weight: 900;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+  z-index: -1;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .journey-section::before {
+    left: -30px;
+    bottom: -30px;
+  }
+}
 .section-title h2 { 
    text-align:center; font-size:15px; font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto ,sans-serif;
   font-weight:700; color:#fff; margin-top:8rem;
@@ -2259,8 +2440,30 @@ text-align: center;
 /* ============================================================
    CONTACT
    ============================================================ */
-.contact-section { width:100%; max-width:1200px; padding:80px 20px; overflow:hidden; margin:0 auto; }
+.contact-section { width:100%; max-width:1200px; padding:80px 20px; overflow:hidden; margin:0 auto; position: relative;}
 
+.contact-section::before {
+  content: 'SAY HELLO';
+  position: absolute;
+  right: -30px;
+  top: 23%;
+  
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(80px, 15vw, 180px);
+  font-weight: 900;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.02);
+  pointer-events: none;
+  z-index: -1;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .contact-section::before {
+    font-size: 65px;
+    right: -30px;
+    top: 20%;
+  }
+}
 .section-subtitle { text-align:center; margin:0 auto 60px; font-size:1.1rem; max-width:600px; color: rgba(255, 255, 255, 0.6); }
 
 .contact-container { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:40px; }

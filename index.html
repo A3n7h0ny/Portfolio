@@ -15,7 +15,7 @@
 <meta name="apple-mobile-web-app-title" content="Anthony Bompetshi" />
 <link rel="manifest" href="site.webmanifest" />
 <!-- Only the 3 fonts actually used -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Oxanium:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Oxanium:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 <!-- Font Awesome — loaded once, via preload -->
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -133,6 +133,7 @@
       </div>
     </div>
   </header>
+    <div class="hero-overlay-text">PORTFOLIO</div>
 </div>
 
 <!-- ===== OPTION 1: Animated Scroll Indicator ===== -->
@@ -165,7 +166,7 @@
                <span class="hint-text">tap to view story</span>
                <span class="hint-arrow">👉</span>
           </div>
-          <img src="images/me2.jpg" alt="Anthony Bompetshi - main portrait">
+          <img src="images/me2.png" alt="Anthony Bompetshi - main portrait">
         </div>
 
         <!-- Verified nameplate sits above the blur overlay (higher z-index) -->
@@ -204,6 +205,7 @@
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- ===== OPTION 4: Gradient Separator ===== -->
@@ -274,7 +276,19 @@
     <div class="progress-div"><progress value="90" max="100" aria-label="System Design 90%"></progress></div>
   </div>
 </div>
-
+<div class="currently-learning">
+  <div class="learning-header">
+    <i class="fas fa-code-branch"></i>
+    <span>currently exploring</span>
+    <i class="fas fa-chart-line"></i>
+  </div>
+  <div class="learning-tags">
+    <span class="learning-tag"><i class="fab fa-react"></i> React</span>
+    <span class="learning-tag"><i class="fas fa-leaf"></i> Spring Boot</span>
+    <span class="learning-tag"><i class="fab fa-wordpress"></i> WordPress</span>
+    <span class="learning-tag"><i class="fab fa-python"></i> Python</span>
+  </div>
+</div>
 <!-- MARQUEE SECTION – pure transparent stickers / labels / badges (no cards) -->
   <h3 class="tech-category">Technologies</h3>
     <section class="sticker-marquee" aria-label="floating brand sticker marquee">
@@ -582,45 +596,41 @@
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-icon"><i class="fas fa-file-code" aria-hidden="true"></i></div>
-        <div class="timeline-card">
-          <h3><span class="animation">2021 — First Steps</span></h3>
-          <p>Started exploring programming with HTML and understanding the concepts behind website structure.</p>
-          <div class="project-tech"><span class="tech-tag">HTML</span></div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
-        <div class="timeline-card">
-          <h3><span class="animation">2022 — First Projects</span></h3>
-          <p>Built my first websites and personal projects, learning HTML, CSS, and JavaScript.</p>
-          <div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span></div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
-        <div class="timeline-card">
-          <h3><span class="animation">2023 — Scholar</span></h3>
-          <p>Enrolled to study System Dev, learnt programming in C++, networks and web development.</p>
-          <div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">C++</span></div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
-        <div class="timeline-card">
-          <h3><span class="animation">2023/24 — Big Projects</span></h3>
-          <p>Built my first responsive website and banking system.</p>
-          <div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">C++</span></div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-icon"><i class="fas fa-rocket" aria-hidden="true"></i></div>
-        <div class="timeline-card">
-          <h3><span class="animation">2025 — Today</span></h3>
-          <p>Learning Java, building portfolios, and continuing to expand my skills 🚀.</p>
-          <div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Java</span></div>
-        </div>
-      </div>
+  <div class="timeline-icon"><i class="fas fa-file-code" aria-hidden="true"></i></div>
+  <div class="timeline-card">
+    <h3><span class="animation">2021-2022 — The Beginning</span></h3>
+    <p>Started exploring HTML, CSS, and JavaScript. Built my first websites and fell in love with creating things for the web.</p>
+    <div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span></div>
+  </div>
+</div>
+
+<div class="timeline-item">
+  <div class="timeline-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+  <div class="timeline-card">
+    <h3><span class="animation">2024 — System Development</span></h3>
+    <p>Enrolled in formal studies — learned C++, networks, database design, and software architecture principles.</p>
+    <div class="project-tech"><span class="tech-tag">C++</span><span class="tech-tag">SQL</span><span class="tech-tag">OOP</span><span class="tech-tag">JAVA</span></div>
+  </div>
+</div>
+
+<div class="timeline-item">
+  <div class="timeline-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></div>
+  <div class="timeline-card">
+    <h3><span class="animation">2025 — First Freelance Win</span></h3>
+    <p>Secured my first paying client — built a complete website for an appliance repair business. Realized I could solve real problems with code.</p>
+    <div class="project-tech"><span class="tech-tag">Freelance</span><span class="tech-tag">Web Design</span><span class="tech-tag">Deployment</span></div>
+  </div>
+</div>
+
+<div class="timeline-item">
+  <div class="timeline-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
+  <div class="timeline-card">
+    <h3><span class="animation">2026 — Building for Business</span></h3>
+    <p>Freelancing full-swing — creating websites, booking systems, and custom software that helps local businesses grow. Every project teaches me something new.</p>
+    <div class="project-tech"><span class="tech-tag">Business Solutions</span><span class="tech-tag">System Design</span><span class="tech-tag">Client Success</span></div>
+  </div>
+</div>
+
     </div>
   </div>
 </section>
@@ -704,7 +714,7 @@
     <div class="story-progress" id="storyProgress"></div>
     <div class="story-header">
       <div class="story-user">
-        <img src="images/me2.jpg" class="story-avatar" alt="Anthony">
+        <img src="images/me2.png" class="story-avatar" alt="Anthony">
         <div class="story-user-info">
           <span class="story-username">Anthony Bompetshi</span>
           <span class="story-time">Developer · South Africa</span>
