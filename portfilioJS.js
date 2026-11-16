@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
         inputs.forEach(input => {
           if (input.hasAttribute('required') && !input.value.trim()) {
             isValid = false;
-            input.style.borderColor = '#ff3860';
+            input.style.borderColor = '#ff4c2b';
           } else {
             input.style.borderColor = '';
           }
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!isValid) {
           submitBtn.textContent = 'Please fill all fields!';
-          submitBtn.style.background = 'linear-gradient(135deg, #ff3860, #ff3860)';
+          submitBtn.style.background = 'linear-gradient(135deg, #ff4c2b, #d93a1b)';
           setTimeout(() => {
             submitBtn.textContent = 'Send Message';
             submitBtn.style.background = '';
@@ -520,7 +520,7 @@ initCarousel('carouselTrack2', 'arrowLeft2', 'arrowRight2', 'indicatorDots2');
       title: '💻 System Development Student',
       body: 'Building interactive experiences with HTML, CSS, JavaScript and Java. Based in Gauteng, open to opportunities.',
       tags: ['HTML/CSS', 'JavaScript', 'Java', 'SQL'],
-      bg: 'linear-gradient(125deg, #0b0719, #1e133a)',
+      bg: 'linear-gradient(125deg, #080f1b, #0f2a46)',
       caption: '🚀 Passion for clean code',
       duration: 5500
     },
@@ -536,7 +536,7 @@ initCarousel('carouselTrack2', 'arrowLeft2', 'arrowRight2', 'indicatorDots2');
       title: '📜 Certifications & Milestones',
       body: 'Currently working toward my first certification. Always expanding my toolkit.',
       tags: ['In Progress', 'Java Dev', 'System Design'],
-      bg: 'linear-gradient(145deg, #0f0f25, #231b48)',
+      bg: 'linear-gradient(145deg, #0a1626, #12385c)',
       caption: '🎯 Certifications coming soon',
       duration: 5800
     },
@@ -546,7 +546,7 @@ initCarousel('carouselTrack2', 'arrowLeft2', 'arrowRight2', 'indicatorDots2');
       title: "🤝 Let's Collaborate",
       body: 'Open for internships, junior developer roles, and meaningful projects. Let\'s build something great.',
       tags: ['Open to work', 'Gauteng', 'Remote OK'],
-      bg: 'radial-gradient(circle at 30% 10%, #15102e, #090511)',
+      bg: 'radial-gradient(circle at 30% 10%, #0f2a46, #050a12)',
       caption: '📬 bompetshitony@gmail.com',
       duration: 6000
     }
@@ -617,7 +617,7 @@ initCarousel('carouselTrack2', 'arrowLeft2', 'arrowRight2', 'indicatorDots2');
       } else {
         const div = document.createElement('div');
         div.className = 'story-text-slide active';
-        div.style.background = s.bg || '#0a0a1a';
+        div.style.background = s.bg || '#080f1b';
         div.innerHTML = `
           <i class="${s.icon} slide-icon"></i>
           <div class="slide-title">${s.title}</div>
