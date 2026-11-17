@@ -1051,7 +1051,7 @@ button:active { border-color:rgb(255,255,255); }
 
 .profile-img::before {
   content:''; position:absolute; width:260px; height:260px;
-  background:url("Images/dp.png") center/cover;
+  background:url("Images/Cinematic.png") center/cover;
   border-radius:50%; transition:all 0.5s ease;
 }
 
